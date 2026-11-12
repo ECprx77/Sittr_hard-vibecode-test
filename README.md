@@ -1,65 +1,72 @@
 # Sittr — Baby-sitting PWA
 
-Monorepo : `backend/` (API) + `frontend/` (React/Vite) + `shared/` (contrat API).
+Monorepo : `backend/` (API Express + SQLite) + `frontend/` (React + Vite PWA) + `shared/` (types + OpenAPI).
 
-## Backend
+## Démarrage local
+
+Deux terminaux :
 
 ```bash
+# API
 cd backend
 cp .env.example .env
 npm install
-npm run seed    # crée l’admin local
-npm run dev     # http://localhost:3001
-npm test
+npm run seed          # admin local
+npm run seed:demo     # profils de démo (optionnel)
+npm run dev           # http://localhost:3001
+
+# Front
+cd frontend
+cp .env.example .env  # laisser VITE_API_URL vide en local
+npm install
+npm run dev           # http://localhost:5173
 ```
 
-- Base URL API : `http://localhost:3001/api`
-- Auth : cookie de session (`credentials: 'include'`)
+En local, Vite proxy `/api` et `/uploads` vers `http://localhost:3001`.  
+Les appels front utilisent `credentials: 'include'` (cookie de session).
+
+### Comptes
+
+| Rôle | Email | Mot de passe |
+|------|-------|--------------|
+| Admin | `admin@sittr.local` | `AdminChangeMe123!` (via `.env`) |
+| Démo baby-sitters | `camille@sittr.local`, etc. | `DemoSittr123!` |
+
+## Configuration
+
+**Backend** (`backend/.env`) :
+
+- `PORT`, `DATABASE_PATH`, `SESSION_SECRET`, `FRONTEND_ORIGIN`, `SUPPORT_PHONE`
+
+**Frontend** (`frontend/.env`) :
+
+- Local : `VITE_API_URL=` (vide → proxy Vite)
+- Production : origine API **sans** suffixe dupliqué, ex. `https://api.exemple.fr`  
+  (les chemins client sont déjà `/api/...`)
+
+## Contrat API
+
+- Types : `shared/types.ts`
+- OpenAPI : `shared/openapi.yaml`
 - Health : `GET /api/health`
-- Config publique : `GET /api/config` → `{ supportPhone, appName }`
+- Config : `GET /api/config` → `{ supportPhone, appName }`
 
-Compte admin par défaut (modifiable via `.env`) :
-- email : `admin@sittr.local`
-- mot de passe : `AdminChangeMe123!`
+## Tests
 
-## Frontend (intégration)
-
-Variables attendues :
-
+```bash
+cd backend && npm test
+cd frontend && npm test && npm run build
 ```
-VITE_API_URL=http://localhost:3001/api
-```
-
-Tous les `fetch` authentifiés doivent utiliser `credentials: 'include'`.  
-CORS autorise `FRONTEND_ORIGIN` (défaut `http://localhost:5173`).
-
-Types partagés : `shared/types.ts`  
-OpenAPI minimal : `shared/openapi.yaml`
-
-### Endpoints MVP
-
-| Méthode | Chemin | Rôle |
-|---------|--------|------|
-| POST | `/auth/register` | public (`parent` \| `babysitter`) |
-| POST | `/auth/login` | public |
-| POST | `/auth/logout` | session |
-| GET/DELETE | `/auth/me` | session |
-| PATCH | `/profiles/me` | session |
-| POST | `/profiles/me/photo` | session (multipart `photo`) |
-| POST | `/profiles/me/verification-request` | babysitter |
-| GET | `/profiles/:userId` | public (téléphone seulement si `phonePublic`) |
-| GET | `/search` | public (`city`, `postalCode`, `maxRate`, `day`, `after`, `before`) |
-| CRUD | `/availabilities` | babysitter |
-| GET/POST/DELETE | `/favorites` | parent |
-| GET/POST/PATCH | `/requests` | parent / babysitter |
-| GET/PATCH | `/admin/users…` | admin |
-| GET | `/config` | public |
-
-Liens `sms:` / `tel:` : côté front uniquement (numéro support via `/config`, téléphone baby-sitter via profil si public).
 
 ## Sécurité / RGPD
 
-- Mots de passe hashés (bcrypt)
-- Téléphone privé par défaut
-- Badge vérifié seulement si statut `verified` (admin)
-- `DELETE /auth/me` anonymise le compte
+- Mots de passe hashés (bcrypt), sessions cookie `httpOnly`
+- Téléphone privé sauf `phonePublic`
+- Badge « vérifié » uniquement si statut admin `verified`
+- `DELETE /api/auth/me` anonymise le compte
+- Ne jamais committer `backend/.env` ni `*.sqlite`
+
+## Déploiement (notes)
+
+- Front : build statique (`frontend/dist`) — `vercel.json` inclut le rewrite SPA
+- Back : Node 20+, SQLite fichier, définir `SESSION_SECRET`, `FRONTEND_ORIGIN`, cookies `secure` en prod
