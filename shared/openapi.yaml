@@ -1,0 +1,99 @@
+openapi: 3.0.3
+info:
+  title: Sittr API
+  version: 1.0.0
+  description: API Baby-sitting PWA — cookie session auth (credentials include)
+servers:
+  - url: http://localhost:3001/api
+paths:
+  /config:
+    get:
+      summary: Public app config (support phone)
+  /auth/register:
+    post:
+      summary: Register parent or babysitter
+  /auth/login:
+    post:
+      summary: Login
+  /auth/logout:
+    post:
+      summary: Logout
+  /auth/me:
+    get:
+      summary: Current user
+    delete:
+      summary: Delete account (GDPR)
+  /profiles/me:
+    patch:
+      summary: Update own profile
+  /profiles/me/photo:
+    post:
+      summary: Upload profile photo
+  /profiles/me/verification-request:
+    post:
+      summary: Request verification (babysitter)
+  /profiles/{userId}:
+    get:
+      summary: Get profile (public fields)
+  /search:
+    get:
+      summary: Search babysitters
+      parameters:
+        - in: query
+          name: city
+          schema: { type: string }
+        - in: query
+          name: postalCode
+          schema: { type: string }
+        - in: query
+          name: maxRate
+          schema: { type: number }
+        - in: query
+          name: day
+          schema: { type: integer }
+        - in: query
+          name: after
+          schema: { type: string }
+        - in: query
+          name: before
+          schema: { type: string }
+  /availabilities/me:
+    get:
+      summary: Own availabilities
+  /availabilities/{userId}:
+    get:
+      summary: Public availabilities
+  /availabilities:
+    post:
+      summary: Create availability
+  /availabilities/{id}:
+    patch:
+      summary: Update availability
+    delete:
+      summary: Delete availability
+  /favorites:
+    get:
+      summary: List favorites
+  /favorites/{babysitterId}:
+    post:
+      summary: Add favorite
+    delete:
+      summary: Remove favorite
+  /requests/sent:
+    get:
+      summary: Requests sent (parent)
+  /requests/received:
+    get:
+      summary: Requests received (babysitter)
+  /requests:
+    post:
+      summary: Create request
+  /requests/{id}:
+    patch:
+      summary: Update request status
+  /admin/users:
+    get:
+      summary: List users (admin)
+  /admin/users/{id}/verification:
+    patch:
+      summary: Set verification status (admin)

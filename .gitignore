@@ -1,0 +1,15 @@
+backend/data/
+backend/dist/
+backend/.env
+backend/node_modules/
+backend/uploads/
+data/
+dist/
+.DS_Store
+.env
+node_modules/
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+uploads/
+.cursor/
