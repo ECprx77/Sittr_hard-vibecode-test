@@ -10,7 +10,8 @@
       "root": "backend/",
       "framework": "express",
       "entrypoint": "src/index.ts",
-      "buildCommand": "true"
+      "installCommand": "npm install",
+      "buildCommand": "npm rebuild better-sqlite3 bcrypt"
     }
   },
   "rewrites": [
