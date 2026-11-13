@@ -9,7 +9,7 @@ import {
   toPublicProfile,
   type ProfileRow,
 } from '../utils/profile.js';
-import type { Role } from '../../../shared/types.js';
+import type { Role } from '../shared/types.js';
 
 export const authRouter = Router();
 

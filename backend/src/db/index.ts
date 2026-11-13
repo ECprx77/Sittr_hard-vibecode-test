@@ -22,7 +22,7 @@ export function getDb(dbPath = config.databasePath): Database.Database {
   return instance;
 }
 
-export function migrate(database = getDb()): void {
+export function migrate(database: Database.Database = getDb()): void {
   const schema = fs.readFileSync(path.join(__dirname, 'schema.sql'), 'utf8');
   database.exec(schema);
 }

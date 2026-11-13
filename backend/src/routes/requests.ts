@@ -4,7 +4,7 @@ import { getDb } from '../db/index.js';
 import { requireAuth, requireRole } from '../middleware/auth.js';
 import { validate } from '../middleware/validate.js';
 import { nowIso } from '../utils/time.js';
-import type { RequestStatus, Role } from '../../../shared/types.js';
+import type { RequestStatus, Role } from '../shared/types.js';
 
 export const requestsRouter = Router();
 

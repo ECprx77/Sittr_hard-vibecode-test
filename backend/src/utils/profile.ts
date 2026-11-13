@@ -1,4 +1,4 @@
-import type { PublicAvailability, PublicProfile, Role, VerificationStatus } from '../../../shared/types.js';
+import type { PublicAvailability, PublicProfile, Role, VerificationStatus } from '../shared/types.js';
 
 export interface ProfileRow {
   user_id: number;

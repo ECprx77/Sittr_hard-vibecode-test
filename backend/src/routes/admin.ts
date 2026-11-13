@@ -8,7 +8,7 @@ import {
   toPublicProfile,
   type ProfileRow,
 } from '../utils/profile.js';
-import type { Role, VerificationStatus } from '../../../shared/types.js';
+import type { Role, VerificationStatus } from '../shared/types.js';
 
 export const adminRouter = Router();
 
