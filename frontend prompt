@@ -1,0 +1,150 @@
+Tu es un directeur artistique et designer UI/UX spécialisé dans les applications web modernes, accessibles et éco-conçues.
+
+Je travaille sur un projet étudiant : une Progressive Web App (PWA) de mise en relation entre parents et baby-sitters.
+
+Je souhaite que tu conçoives une interface complète, moderne, chaleureuse, rassurante et particulièrement intuitive.
+
+## 1. Identité visuelle
+
+Le design doit s'inspirer d'une identité naturelle, humaine et chaleureuse.
+
+Palette de couleurs :
+- Orange carotte : #F28C38 (couleur principale d'accentuation).
+- Vert pomme : #8DBF45 (couleur secondaire).
+- Blanc : #FFFFFF (fond principal).
+- Blanc cassé : #FAFAF7 (fonds secondaires).
+- Gris foncé : #30352F (textes).
+- Gris clair : #EAECE7 (bordures et séparateurs).
+
+Utilisation des couleurs :
+- L'orange carotte doit être utilisé pour les boutons principaux, les appels à l'action et certains éléments importants.
+- Le vert pomme doit servir à mettre en avant les disponibilités, les confirmations et les informations positives.
+- Le blanc doit rester largement dominant.
+- Éviter les grands aplats de couleurs trop agressifs.
+
+## 2. Direction artistique
+
+Je souhaite un design :
+- Minimaliste, moderne et épuré.
+- Chaleureux et humain.
+- Inspirant confiance et sécurité.
+- Avec des coins légèrement arrondis.
+- Des cartes simples et bien espacées.
+- Une typographie moderne et très lisible.
+- Des icônes simples et cohérentes.
+- Des animations discrètes uniquement lorsqu'elles apportent quelque chose.
+
+Éviter absolument :
+- Le design enfantin ou trop cartoon.
+- Les dégradés omniprésents.
+- Les ombres trop prononcées.
+- Les animations inutiles.
+- Les interfaces surchargées.
+- Les illustrations lourdes et les vidéos en arrière-plan.
+
+## 3. Structure de l'application
+
+Créer une interface responsive pensée d'abord pour les smartphones, mais parfaitement utilisable sur ordinateur.
+
+### A. Page d'accueil
+
+Créer une landing page avec :
+- Un logo textuel simple.
+- Une barre de navigation légère.
+- Un message d'accueil rassurant.
+- Un champ de recherche permettant de trouver une baby-sitter par ville ou code postal.
+- Deux boutons distincts : « Je cherche une baby-sitter » et « Je propose mes services ».
+- Une présentation rapide du fonctionnement.
+- Une mise en avant de la sécurité et de la simplicité du service.
+- Un accès visible à la permanence téléphonique.
+
+### B. Recherche de baby-sitters
+
+Créer une page de recherche avec :
+- Une liste de profils sous forme de cartes.
+- Une photo de profil si disponible.
+- Le prénom et l'âge.
+- La ville ou le secteur géographique.
+- L'expérience.
+- Le tarif horaire.
+- Les disponibilités.
+- Un badge de profil vérifié si applicable.
+- Un bouton « Voir le profil ».
+
+Prévoir des filtres simples : localisation, tarif et disponibilités.
+
+### C. Profil d'une baby-sitter
+
+Afficher :
+- Informations personnelles utiles.
+- Présentation et expérience.
+- Tarifs.
+- Disponibilités.
+- Avis éventuels.
+- Informations de vérification.
+- Un bouton bien visible « Contacter par SMS ».
+
+### D. Espace baby-sitter
+
+Créer une interface simple permettant :
+- De consulter son profil.
+- De modifier sa présentation.
+- De renseigner ses tarifs.
+- De gérer ses disponibilités.
+- De consulter les demandes reçues.
+
+### E. Espace parent
+
+Permettre :
+- De consulter les profils.
+- De retrouver les baby-sitters enregistrées.
+- De consulter les demandes envoyées.
+- De retrouver les informations des personnes contactées.
+
+### F. Page de contact
+
+Créer une page simple avec :
+- Les informations de contact.
+- Un bouton d'appel téléphonique.
+- Un bouton permettant d'envoyer un SMS.
+- Une présentation de la permanence téléphonique.
+
+## 4. Responsive design et accessibilité
+
+L'application doit être utilisable :
+- Sur les petits smartphones anciens.
+- Sur les smartphones récents.
+- Sur tablette.
+- Sur ordinateur.
+
+Respecter les bonnes pratiques d'accessibilité :
+- Contrastes suffisants.
+- Textes lisibles.
+- Boutons suffisamment grands.
+- Navigation intuitive.
+- Formulaires simples.
+- Labels explicites.
+- Ne pas utiliser uniquement les couleurs pour transmettre une information.
+
+## 5. Expérience utilisateur
+
+L'application doit être compréhensible dès la première utilisation.
+
+Privilégier :
+- Des parcours courts.
+- Peu de clics.
+- Des formulaires courts.
+- Une navigation claire.
+- Des informations essentielles immédiatement visibles.
+
+La priorité est donnée aux personnes peu habituées aux outils numériques.
+
+## 6. Consignes finales
+
+Je souhaite un rendu professionnel digne d'une véritable startup.
+
+Ne te contente pas de créer une maquette statique : construis de véritables pages cohérentes et navigables.
+
+Conserve une identité visuelle homogène sur toutes les pages.
+
+Le résultat doit être chaleureux, léger, accessible et rassurant.

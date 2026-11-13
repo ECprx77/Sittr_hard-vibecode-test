@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project>
+
+    <identity>
+        <name>Baby-sitting</name>
+        <type>Progressive Web App (PWA)</type>
+        <description>
+            Plateforme légère de mise en relation entre parents et baby-sitters.
+            Le service doit permettre de trouver rapidement une personne de confiance
+            sans imposer l'installation d'une application mobile classique.
+        </description>
+        <main_objective>
+            Développer une application fonctionnelle, accessible, sécurisée
+            et éco-conçue, compatible avec les smartphones anciens et les
+            connexions Internet limitées.
+        </main_objective>
+    </identity>
+
+    <instructions>
+        <rule>Analyse le projet existant avant toute modification.</rule>
+        <rule>Conserve les technologies et composants déjà fonctionnels lorsque cela est pertinent.</rule>
+        <rule>Ne réécris pas inutilement le projet.</rule>
+        <rule>Privilégie toujours les solutions simples et légères.</rule>
+        <rule>Ne développe aucune fonctionnalité sans utilité réelle.</rule>
+        <rule>Ne simule jamais une fonctionnalité présentée comme opérationnelle.</rule>
+        <rule>Signale les fonctionnalités nécessitant une configuration externe.</rule>
+    </instructions>
+
+    <technology>
+        <preferred_stack>
+            <frontend>React avec Vite</frontend>
+            <language>TypeScript si pertinent</language>
+            <styling>CSS classique ou CSS Modules</styling>
+            <backend>
+                Choisir une solution simple, sécurisée et adaptée
+                au projet existant.
+            </backend>
+            <database>
+                Utiliser une base de données légère et adaptée aux besoins.
+            </database>
+        </preferred_stack>
+
+        <constraints>
+            <constraint>Limiter les dépendances externes.</constraint>
+            <constraint>Éviter les bibliothèques lourdes.</constraint>
+            <constraint>Ne pas multiplier les frameworks.</constraint>
+            <constraint>Privilégier une architecture maintenable.</constraint>
+        </constraints>
+    </technology>
+
+    <users>
+        <user type="parent">
+            <description>Personne recherchant une solution de garde pour son enfant.</description>
+            <permissions>
+                Consulter les profils.
+                Effectuer des recherches.
+                Contacter les baby-sitters.
+                Enregistrer des favoris.
+                Consulter ses demandes.
+            </permissions>
+        </user>
+
+        <user type="babysitter">
+            <description>Personne proposant des services de babysitting.</description>
+            <permissions>
+                Créer et modifier son profil.
+                Renseigner ses tarifs.
+                Ajouter son expérience.
+                Gérer ses disponibilités.
+                Consulter les demandes reçues.
+            </permissions>
+        </user>
+
+        <user type="admin">
+            <description>Administrateur de la plateforme.</description>
+            <permissions>
+                Consulter les utilisateurs.
+                Vérifier les profils.
+                Modifier le statut de vérification.
+                Gérer les signalements.
+            </permissions>
+        </user>
+    </users>
+
+    <features>
+
+        <authentication priority="high">
+            <feature>Inscription des parents et baby-sitters.</feature>
+            <feature>Connexion sécurisée.</feature>
+            <feature>Déconnexion.</feature>
+            <feature>Gestion des sessions.</feature>
+            <feature>Gestion des rôles et permissions.</feature>
+            <security>
+                Les mots de passe ne doivent jamais être stockés en clair.
+                Utiliser une solution d'authentification sécurisée.
+            </security>
+        </authentication>
+
+        <profiles priority="high">
+            <fields>
+                <field>Prénom</field>
+                <field>Âge</field>
+                <field>Ville</field>
+                <field>Code postal</field>
+                <field>Présentation</field>
+                <field>Expérience</field>
+                <field>Tarif horaire</field>
+                <field>Disponibilités</field>
+                <field>Photo de profil facultative</field>
+            </fields>
+            <rules>
+                Chaque utilisateur peut modifier ses propres informations.
+                Les coordonnées personnelles ne doivent pas être publiques
+                sans consentement explicite.
+            </rules>
+        </profiles>
+
+        <search priority="high">
+            <feature>Recherche par ville ou code postal.</feature>
+            <feature>Filtrage par tarif.</feature>
+            <feature>Filtrage par disponibilités.</feature>
+            <feature>Affichage des profils correspondants.</feature>
+            <constraints>
+                Ne pas intégrer de géolocalisation permanente.
+                Ne pas intégrer de carte interactive lourde.
+                Privilégier une recherche simple et rapide.
+            </constraints>
+        </search>
+
+        <availability priority="high">
+            <feature>Ajouter des disponibilités.</feature>
+            <feature>Modifier les disponibilités.</feature>
+            <feature>Supprimer des disponibilités.</feature>
+            <feature>Afficher les disponibilités sur le profil.</feature>
+            <constraints>
+                Utiliser un système simple de jours et horaires.
+                Éviter les calendriers complexes.
+            </constraints>
+        </availability>
+
+        <sms_contact priority="high">
+            <description>
+                Permettre une mise en relation rapide entre parents et baby-sitters.
+            </description>
+            <features>
+                <feature>Bouton de contact par SMS.</feature>
+                <feature>Message prérempli avec les informations utiles.</feature>
+                <feature>Ouverture de l'application SMS native du téléphone.</feature>
+            </features>
+            <technical>
+                Utiliser un lien natif sms: lorsque cela est possible.
+                Ne pas intégrer de service SMS payant.
+                Ne pas développer d'envoi automatique de SMS.
+            </technical>
+        </sms_contact>
+
+        <verification priority="medium">
+            <statuses>
+                <status>Non vérifié</status>
+                <status>En attente de vérification</status>
+                <status>Vérifié</status>
+            </statuses>
+            <rules>
+                La vérification doit être effectuée manuellement
+                par un administrateur.
+                Seuls les profils réellement validés peuvent afficher
+                le badge vérifié.
+                Ne jamais présenter une simple inscription comme
+                une vérification d'identité.
+            </rules>
+        </verification>
+
+        <telephone_support priority="high">
+            <feature>Bouton d'appel téléphonique.</feature>
+            <feature>Accès visible depuis les pages principales.</feature>
+            <technical>
+                Utiliser un lien tel:.
+                Le numéro de téléphone doit être facilement configurable.
+            </technical>
+        </telephone_support>
+
+        <favorites priority="low">
+            <feature>Ajouter un profil aux favoris.</feature>
+            <feature>Retirer un profil des favoris.</feature>
+            <feature>Consulter ses favoris.</feature>
+        </favorites>
+
+        <requests priority="medium">
+            <feature>Consulter les demandes envoyées.</feature>
+            <feature>Consulter les demandes reçues.</feature>
+            <feature>Afficher le statut d'une demande.</feature>
+        </requests>
+
+    </features>
+
+    <pwa>
+        <objective>
+            Transformer le site en Progressive Web App installable
+            depuis un navigateur compatible.
+        </objective>
+
+        <requirements>
+            <requirement>Créer un manifest web.</requirement>
+            <requirement>Définir le nom et les icônes de l'application.</requirement>
+            <requirement>Mettre en place un service worker léger.</requirement>
+            <requirement>Permettre l'installation de la PWA.</requirement>
+            <requirement>Maintenir le fonctionnement dans un navigateur classique.</requirement>
+        </requirements>
+
+        <offline>
+            Mettre en cache uniquement les ressources statiques utiles.
+            Ne jamais mettre en cache les informations personnelles sensibles.
+            Ne pas chercher à rendre toutes les fonctionnalités disponibles hors ligne.
+        </offline>
+    </pwa>
+
+    <eco_design>
+        <priority>CRITIQUE</priority>
+
+        <principles>
+            <principle>Limiter le poids total des pages.</principle>
+            <principle>Optimiser les images en WebP ou AVIF.</principle>
+            <principle>Utiliser le chargement différé lorsque nécessaire.</principle>
+            <principle>Limiter les requêtes réseau.</principle>
+            <principle>Éviter les dépendances JavaScript inutiles.</principle>
+            <principle>Privilégier HTML et CSS natifs.</principle>
+            <principle>Limiter les animations.</principle>
+            <principle>Éviter les vidéos et contenus lourds.</principle>
+            <principle>Éviter les appels réseau répétés.</principle>
+            <principle>Ne pas utiliser de géolocalisation permanente.</principle>
+        </principles>
+
+        <forbidden_features>
+            <feature>Intelligence artificielle.</feature>
+            <feature>Reconnaissance faciale.</feature>
+            <feature>Appels vidéo intégrés.</feature>
+            <feature>Carte interactive lourde.</feature>
+            <feature>Notifications push dans le MVP.</feature>
+            <feature>Géolocalisation en arrière-plan.</feature>
+        </forbidden_features>
+
+        <target>
+            L'application doit rester utilisable sur un smartphone ancien
+            avec une connexion 4G limitée.
+        </target>
+    </eco_design>
+
+    <security>
+        <requirements>
+            <requirement>Valider les données côté client et côté serveur.</requirement>
+            <requirement>Protéger les comptes utilisateurs.</requirement>
+            <requirement>Contrôler les permissions selon les rôles.</requirement>
+            <requirement>Limiter la collecte de données personnelles.</requirement>
+            <requirement>Protéger les coordonnées privées.</requirement>
+            <requirement>Permettre la suppression d'un compte.</requirement>
+            <requirement>Prévoir les obligations liées au RGPD.</requirement>
+        </requirements>
+    </security>
+
+    <development_priorities>
+
+        <mvp priority="1">
+            <feature>Page d'accueil.</feature>
+            <feature>Inscription et connexion.</feature>
+            <feature>Gestion des profils.</feature>
+            <feature>Recherche de baby-sitters.</feature>
+            <feature>Consultation des disponibilités.</feature>
+            <feature>Contact par SMS.</feature>
+            <feature>Accès à la permanence téléphonique.</feature>
+            <feature>Installation PWA.</feature>
+        </mvp>
+
+        <future priority="2">
+            <feature>Vérification administrative des profils.</feature>
+            <feature>Système d'avis.</feature>
+            <feature>Favoris.</feature>
+            <feature>Historique des demandes.</feature>
+        </future>
+
+    </development_priorities>
+
+    <architecture>
+        <requirements>
+            Séparer clairement les composants, pages, services,
+            données, styles et fonctions utilitaires.
+            Créer des composants réutilisables.
+            Éviter les fichiers trop volumineux.
+            Maintenir un code lisible et documenté lorsque nécessaire.
+        </requirements>
+    </architecture>
+
+    <workflow>
+        <step order="1">
+            Analyser les fichiers et technologies existants.
+        </step>
+        <step order="2">
+            Présenter brièvement l'architecture technique proposée.
+        </step>
+        <step order="3">
+            Identifier les fonctionnalités déjà présentes et celles manquantes.
+        </step>
+        <step order="4">
+            Développer les fonctionnalités du MVP progressivement.
+        </step>
+        <step order="5">
+            Tester les parcours utilisateurs.
+        </step>
+        <step order="6">
+            Corriger les erreurs et optimiser les performances.
+        </step>
+        <step order="7">
+            Vérifier la compatibilité PWA et mobile.
+        </step>
+    </workflow>
+
+    <final_validation>
+        <check>Le site fonctionne sur smartphone et ordinateur.</check>
+        <check>L'inscription et la connexion fonctionnent réellement.</check>
+        <check>Les profils peuvent être créés et modifiés.</check>
+        <check>La recherche fonctionne.</check>
+        <check>Les disponibilités sont enregistrées.</check>
+        <check>Les liens SMS et téléphoniques fonctionnent.</check>
+        <check>La PWA est installable.</check>
+        <check>Les données personnelles sont protégées.</check>
+        <check>Le site reste léger et rapide.</check>
+        <check>Les fonctionnalités annoncées sont réellement opérationnelles.</check>
+    </final_validation>
+
+    <expected_result>
+        Produire une PWA fonctionnelle, professionnelle, accessible,
+        sécurisée et éco-conçue.
+
+        La priorité absolue est de proposer un service simple et efficace
+        permettant aux parents et aux baby-sitters de se mettre en relation
+        rapidement, sans alourdir inutilement l'expérience numérique.
+    </expected_result>
+
+</project>
