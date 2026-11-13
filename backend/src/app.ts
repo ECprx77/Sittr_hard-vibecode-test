@@ -29,7 +29,8 @@ export function createApp() {
   app.use(helmet({ crossOriginResourcePolicy: { policy: 'cross-origin' } }));
   app.use(
     cors({
-      origin: config.frontendOrigin,
+      // Même domaine Vercel (Services) : refléter l’origine ; sinon FRONTEND_ORIGIN.
+      origin: process.env.VERCEL ? true : config.frontendOrigin,
       credentials: true,
     }),
   );
